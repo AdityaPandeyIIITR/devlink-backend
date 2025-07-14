@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const { handleRedirect } = require("./controllers/clickController");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
@@ -16,5 +17,7 @@ const analyticsRoutes = require("./routes/analyticsRoutes");
 app.use("/api/auth", authRoutes);
 app.use("/api/links", linkRoutes);
 app.use("/api/analytics", analyticsRoutes);
+
+app.get("/:shortId", handleRedirect);
 
 module.exports = app;
