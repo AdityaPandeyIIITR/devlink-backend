@@ -7,7 +7,7 @@ const handleRedirect = async(req,res) => {
     try {
         const link = await Link.findOne({shortId});
         if (!link){
-            res.status(400).json({message : "Link not found"});
+            res.status(404).json({message : "Link not found"});
         }
 
         //save click details
